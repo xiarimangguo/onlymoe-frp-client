@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
 using System.Runtime.InteropServices;
 using OGFrp.UI;
+using System.Threading;
 
 namespace OGFrp.Lite
 {
@@ -20,6 +21,11 @@ namespace OGFrp.Lite
 
         public work()
         {
+            Task t = new Task(() =>
+            {
+                Net.GetApis();
+            });
+            t.Start();
             printWelcome();
             exePath = Environment.CurrentDirectory;
             try
