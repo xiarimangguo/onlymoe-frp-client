@@ -14,7 +14,7 @@ function createWindow() {
 
     win.title = "OGFrp Panel";                     // 设置窗口标题
     win.menuBarVisible = false;                    // 隐藏菜单栏
-    win.loadURL("https://ogfrp.cn/?page=login");   // 加载网页
+    win.loadURL("https://frp.among.moe/?page=login");   // 加载网页
     win.on('closed', () => {
         win = null                                 // 取消引用 window 对象
     });

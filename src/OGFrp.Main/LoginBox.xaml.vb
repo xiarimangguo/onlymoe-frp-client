@@ -60,8 +60,6 @@ Public Class LoginBox
 
     Private Sub GetMyApi()
         Dim stt = Net.GetApis()
-        MsgBox(stt)
-        MsgBox(Api.Server.Val)
     End Sub
 
     Dim tempfrm As New Forms.Form With {

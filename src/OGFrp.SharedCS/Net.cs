@@ -252,10 +252,10 @@ namespace OGFrp.UI
                     var minIndexesss = Array.ConvertAll(minIndexess, s => int.TryParse(s, out int i) ? i : 0);
                     Random ran = new Random();
                     int n = ran.Next(minIndexesss.Length - 1);
-                    System.Windows.Forms.MessageBox.Show(AvailableServers.ToString());
-                    System.Windows.Forms.MessageBox.Show(serverDelay.ToString());
-                    System.Windows.Forms.MessageBox.Show(minIndexes.ToString());
-                    System.Windows.Forms.MessageBox.Show(minIndexesss[n].ToString());
+                    //System.Windows.Forms.MessageBox.Show(AvailableServers.ToString());
+                    //System.Windows.Forms.MessageBox.Show(serverDelay.ToString());
+                    //System.Windows.Forms.MessageBox.Show(minIndexes.ToString());
+                    //System.Windows.Forms.MessageBox.Show(minIndexesss[n].ToString());
                     apiServer = AvailableServerss[minIndexesss[n]];
                 }
                 Api.Servers.Val = AvailableServers;

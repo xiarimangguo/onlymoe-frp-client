@@ -22,7 +22,7 @@ namespace OGFrp.UI
         {
             try
             {
-                Net.Download("https://client.ogfrp.cn/frpc/frpc_windows_amd64.exe", path + "\\frpc.exe");
+                Net.Download("https://client.onlymoe.ga/frpc/frpc_windows_amd64.exe", path + "\\frpc.exe");
             }
             catch (Exception)
             {
@@ -35,7 +35,7 @@ namespace OGFrp.UI
         {
             try
             {
-                Net.Download("https://client.ogfrp.cn/frpc/frpc_windows_amd64.exe", path + "\\frpc.exe", true);
+                Net.Download("https://client.onlymoe.ga/frpc/frpc_windows_amd64.exe", path + "\\frpc.exe", true);
             }
             catch (Exception ex)
             {
