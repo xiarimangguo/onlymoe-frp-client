@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace OGFrp.UI
 {
@@ -34,11 +37,32 @@ namespace OGFrp.UI
         /// <param name="email">邮箱地址</param>
         public static void getImage(string email)
         {
+            bool isContains = email.ToLower().Contains("@".ToLower());
+            string mail = "";
+            string url = "";
+            if (!isContains)
+            {
+                JObject res = (JObject)JsonConvert.DeserializeObject(Net.GetUserInfo(Userinf.Usertoken.Val));
+                mail = res["email"].ToString();
+            }
+            else
+            {
+                mail = email;
+            }
+            bool isContainsQQ = mail.ToLower().Contains("@qq.com".ToLower());
             if (Directory.Exists(FolderPath) == false)
             {
                 Directory.CreateDirectory(FolderPath);
             }
-            string url = "https://cdn.zerodream.net/images/gravatar/?id=" + GetMD5(email);
+            if (!isContainsQQ)
+            {
+                url = "https://cdn.zerodream.net/images/gravatar/?id=" + GetMD5(mail);
+            }
+            else
+            {
+                string[] mails = mail.Split('@');
+                url = "https://q1.qlogo.cn/g?b=qq&nk=" + mails[0].ToString() + "&s=640";
+            }
             System.Net.WebClient client = new System.Net.WebClient();
             client.DownloadFile(url, FolderPath + "\\" + email + ".png");
             return;

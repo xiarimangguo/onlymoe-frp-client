@@ -2,6 +2,8 @@
 
     Public Assets As UI.AssetModel
     Public Config As UI.Config
+    Public Userinf As UI.Userinf
+    Public Api As UI.Api
 
     Public Sub _init_()
         Me.lb_flm.Text = Assets.FrpcLaunchMode
@@ -10,7 +12,7 @@
         If Config.FrpcLaunchMode.Val = "node" Then
             Me.cb_val.Text = Assets.ByNode
         Else
-            Config.FrpcLaunchMode.Val = "prroxy"
+            Config.FrpcLaunchMode.Val = "proxy"
             Me.cb_val.Text = Assets.ByProxy
         End If
     End Sub
@@ -18,7 +20,7 @@
     Private Sub cb_val_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles cb_val.SelectionChanged
         Select Case Me.cb_val.SelectedItem
             Case Assets.ByProxy
-                Config.FrpcLaunchMode.Val = "prroxy"
+                Config.FrpcLaunchMode.Val = "proxy"
             Case Assets.ByNode
                 Config.FrpcLaunchMode.Val = "node"
         End Select

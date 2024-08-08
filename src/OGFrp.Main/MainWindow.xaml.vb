@@ -39,7 +39,9 @@ Class MainWindow
     Dim ac As New Assets()  'Temp用ac
     Dim Assets As AssetModel
     Dim Config As New Config()
+    Dim Userinf As New Userinf()
     Dim Theme As New Theme()
+    Dim Api As New Api()
 
     Private Sub _init_() Handles Me.Loaded
         Config.ReadConfig()
@@ -62,6 +64,8 @@ Class MainWindow
         Me.LoginBox.Theme = Me.Theme
         Me.LoginBox.Visibility = Visibility.Visible
         Me.LoginBox.Config = Me.Config
+        Me.LoginBox.Userinf = Me.Userinf
+        Me.LoginBox.Api = Me.Api
         Me.LoginBox._init_()
         Me.txtTitle.Foreground = Me.Theme.titleActiveTextColor
         Me.txtTitle.Text = Assets.Welcome
@@ -91,6 +95,8 @@ Class MainWindow
         Me.MainPanel.Nickname = Me.LoginBox.Username
         Me.MainPanel.UserToken = Me.LoginBox.UserToken
         Me.MainPanel.Config = Me.Config
+        Me.MainPanel.Userinf = Me.Userinf
+        Me.MainPanel.Api = Me.Api
         Me.MainPanel._init_()
         Me.txtTitle.Text = "OGFrp"
     End Sub

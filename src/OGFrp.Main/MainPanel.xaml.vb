@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Threading
 Imports OGFrp.UI
 
 Public Class MainPanel
@@ -10,7 +11,9 @@ Public Class MainPanel
 
     Public Assets As AssetModel
     Public Config As Config
+    Public Userinf As Userinf
     Public Theme As Theme
+    Public Api As Api
 
     Dim SelectedBg As Brush
 
@@ -58,6 +61,16 @@ Public Class MainPanel
                             'Me.UserImage = imgBitmap
                             Me.ctm_userdisplay.SetImage(Me.UserImage)
                             Me.ctm_HomePage.SetImage(Me.UserImage)
+                            If File.Exists(Gravatar.FolderPath + "\" + Username + ".png") Then
+                                Try
+                                    Dim imgBitmaps As New System.Drawing.Bitmap(Gravatar.FolderPath + "\" + Username + ".png")
+                                    Me.ctm_userdisplay.bd_head.Background = New ImageBrush With {
+                                        .ImageSource = UI.Image.BitmapToImageSource(imgBitmaps)
+                                    }
+                                    Me.ctm_HomePage.SetImage(imgBitmaps)
+                                Catch
+                                End Try
+                            End If
                         End Sub)
                 Catch
                 End Try

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
 using System.Runtime.InteropServices;
+using OGFrp.UI;
 
 namespace OGFrp.Lite
 {
@@ -71,7 +72,7 @@ namespace OGFrp.Lite
                 Console.WriteLine("Starting frpc...");
                 Console.WriteLine("To stop frpc, please press Ctrl+C");
                 string iniPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\OGFrp" + "\\frpc.ini";
-                string iniurl = "https://api.ogfrp.cn/?action=getconf&token=" + actoken + "&node=" + nodeid;
+                string iniurl = Api.Server.Val + "/?action=getconfig&token=" + actoken + "&node=" + nodeid;
                 string iniContent = UI.Net.Get(iniurl);
                 FileSystem.WriteAllText(iniPath, iniContent, false);
                 string frpcsh = "cmd /c \"\"" + exePath + "\\frpc.exe\" -c \"" + iniPath + "\"\"";
@@ -88,7 +89,7 @@ namespace OGFrp.Lite
         {
             try
             {
-                string frpslist = UI.Net.Get("https://api.ogfrp.cn/?action=getnodes&token=" + token);
+                string frpslist = UI.Net.Get(Api.Server.Val + "/?action=getnodes&token=" + token +"&console=true");
                 Console.WriteLine(frpslist);
             }
             catch (Exception ex)

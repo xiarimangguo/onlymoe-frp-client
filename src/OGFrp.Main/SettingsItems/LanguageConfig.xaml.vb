@@ -2,6 +2,8 @@
 
     Public Assets As UI.AssetModel
     Public Config As UI.Config
+    Public Userinf As UI.Userinf
+    Public Api As UI.Api
 
     Public Sub _init_()
         Me.lb_Lang.Text = Assets.Language

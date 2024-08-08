@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +16,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.FileIO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace OGFrp.UI
 {
@@ -57,6 +61,11 @@ namespace OGFrp.UI
         /// 用于展示的服务器地址
         /// </summary>
         public string ServerAddr;
+
+        /// <summary>
+        /// 用于展示的服务器名称
+        /// </summary>
+        public string ServerFriendlyAddr;
 
         /// <summary>
         /// 用于展示的隧道名称
@@ -112,13 +121,27 @@ namespace OGFrp.UI
         }
 
         /// <summary>
+        /// 设置用于展示的节点友好名称
+        /// </summary>
+        /// <param name="Name"></param>
+        public void SetServerFriName(string Name)
+        {
+            this.lb_serverFriendlyName.Content = new TextBlock
+            {
+                FontFamily = this.lb_serverFriendlyName.FontFamily,
+                FontSize = this.lb_serverFriendlyName.FontSize,
+                Text = Name
+            };
+        }
+
+        /// <summary>
         /// 设置前景色
         /// </summary>
         /// <param name="Color">要设置的前景色</param>
         public void SetTextForeColor(Brush Color)
         {
             this.lb_ProxyName.Foreground = Color;
-            this.lb_serverName.Foreground = Color;
+            this.lb_serverFriendlyName.Foreground = Color;
             this.bd_main.BorderBrush = Color;
         }
 
@@ -155,7 +178,7 @@ namespace OGFrp.UI
         /// <param name="content"></param>
         public void SetDuplicateNotice(string content)
         {
-            this.lb_serverName.ToolTip = content;
+            this.lb_serverFriendlyName.ToolTip = content;
         }
 
         /// <summary>
@@ -171,6 +194,32 @@ namespace OGFrp.UI
             portName = portName.Split('\n').ToArray()[5];
             portName = portName.Split('=').ToArray()[1];
             portName = portName.Split(' ').ToArray()[1];
+            Task<string> task = (Task<string>)Task.Factory.StartNew(() =>
+            {
+                string[] nodeList = Net.GetNodes(Userinf.Usertoken.Val).Split('\n').ToArray();
+                string serverFriendlyName = "";
+                foreach (string nodeEle in nodeList)
+                {
+                    string[] elespl = nodeEle.Split('|').ToArray();
+                    if (string.Equals(elespl[3].Trim(), serverName.Trim()))
+                    {
+                        if (!string.IsNullOrEmpty(elespl[1].ToString()))
+                        {
+                            serverFriendlyName = elespl[1];
+                        }
+                        else
+                        {
+                            serverFriendlyName = serverName;
+                        }
+                    }
+                }
+                return serverFriendlyName;
+            });
+            task.ContinueWith(r =>
+            {
+                //将内容传写到TextBox上
+                this.SetServerFriName(r.Result);
+            }, TaskScheduler.FromCurrentSynchronizationContext());
             string subTitle = serverName + ":" + portName;
             this.SetServerName(subTitle);
             string proxyName = this.iniFile.Split('[').ToArray()[2];
@@ -185,7 +234,8 @@ namespace OGFrp.UI
             {
                 Microsoft.VisualBasic.FileIO.FileSystem.CreateDirectory(appDataPath + "\\ini_his");
                 string tIniLoca = appDataPath + "\\ini_his\\ini_" + DateAndTime.DateString + DateAndTime.TimeString.Replace(":", "-") + ".ini";
-                Microsoft.VisualBasic.FileIO.FileSystem.WriteAllText(tIniLoca, iniFile, false);
+                UTF8Encoding utf8 = new UTF8Encoding(false);
+                Microsoft.VisualBasic.FileIO.FileSystem.WriteAllText(tIniLoca, iniFile, false, utf8);
                 frpc.setFrpcLoca(this.frpcLoca);
                 frpc.setIniLoca(tIniLoca);
                 int succeed = frpc.Start();
@@ -236,18 +286,18 @@ namespace OGFrp.UI
         private void lb_serverName_MouseUp(object sender, MouseButtonEventArgs e)
         {
             copyAddr();
-            f_addr = ((TextBlock)this.lb_serverName.Content).Text;
-            SetServerName(this.text_Duplicated);
-            cursor_hand = lb_serverName.Cursor;
-            this.lb_serverName.Cursor = Cursor;
+            f_addr = ((TextBlock)this.lb_serverFriendlyName.Content).Text;
+            SetServerFriName(this.text_Duplicated);
+            cursor_hand = lb_serverFriendlyName.Cursor;
+            this.lb_serverFriendlyName.Cursor = Cursor;
             f_timer.Tick += backToDisplay;
             f_timer.Start();
         }
 
         private void backToDisplay(object sender, EventArgs e)
         {
-            SetServerName(f_addr);
-            this.lb_serverName.Cursor = cursor_hand;
+            SetServerFriName(f_addr);
+            this.lb_serverFriendlyName.Cursor = cursor_hand;
             f_timer.Stop();
         }
 

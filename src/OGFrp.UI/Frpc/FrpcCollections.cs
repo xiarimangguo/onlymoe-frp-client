@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.VisualBasic.FileIO;
 
 namespace OGFrp.UI
@@ -24,7 +26,7 @@ namespace OGFrp.UI
         {
             try
             {
-                string tcfgs = Net.Post("https://api.ogfrp.cn", "action=getallconf&token=" + token);
+                string tcfgs = Net.Post(Api.Server.Val + "/?action=getconfig", "token=" + token + "&node=all");
                 this.configs = tcfgs;
                 return 0;
             }
@@ -69,7 +71,7 @@ namespace OGFrp.UI
 
         public IEnumerable<String> ServerIniToCtn()
         {
-            var tresult = configs.Split('|');
+            var tresult = Regex.Split(configs, "==============================", RegexOptions.IgnoreCase);
             int len = 0;
             for (int i = 0; i < tresult.Length; i++)
             {

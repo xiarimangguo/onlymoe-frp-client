@@ -1,12 +1,17 @@
 ﻿Imports OGFrp.UI
 Imports System.IO
 Imports System.Threading
+Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
+Imports System.Security
 
 Public Class LoginBox
 
     Public Assets As AssetModel
     Public Theme As Theme
     Public Config As Config
+    Public Userinf As Userinf
+    Public Api As Api
 
     Dim loginResult As UserControl
 
@@ -14,6 +19,7 @@ Public Class LoginBox
 
     Public Username As String
     Public UserToken As String
+    Public UserinfoJson As String
 
     Private Sub SearchHeadImg(email As String)
         If File.Exists(Gravatar.FolderPath + "\" + email + ".png") Then
@@ -26,7 +32,9 @@ Public Class LoginBox
     End Sub
 
     Public Sub _init_()
+        Dim GetApi As Task = Task.Run(AddressOf GetMyApi)
         Me.tb_Username.Text = Config.Username.Val
+        Me.tb_Password.Password = Config.Password.Val
         Me.lb_unmNotice.Content = Assets.Username
         Me.lb_pwdNotice.Content = Assets.Password
         Me.lb_unmNotice.Foreground = Brushes.Gray
@@ -48,6 +56,12 @@ Public Class LoginBox
             Me.tb_Password.Background = Theme.contentBackground
         End If
         Me.lb_info.Foreground = Theme.contentForeground
+    End Sub
+
+    Private Sub GetMyApi()
+        Dim stt = Net.GetApis()
+        MsgBox(stt)
+        MsgBox(Api.Server.Val)
     End Sub
 
     Dim tempfrm As New Forms.Form With {
@@ -80,6 +94,15 @@ Public Class LoginBox
             tempfrm.Invoke(
                 Sub()
                     Me.UserToken = Net.GetAccessToken(Me.tb_Username.Text, Me.tb_Password.Password)
+                    Userinf.Usertoken.Val = Me.UserToken
+                    Me.UserinfoJson = Net.GetUserInfo(Userinf.Usertoken.Val)
+                    Dim Userinfo As JObject = JsonConvert.DeserializeObject(Me.UserinfoJson)
+                    Userinf.Username.Val = Userinfo.Item("username").ToString
+                    Userinf.Usertoken.Val = Userinfo.Item("token").ToString
+                    Userinf.Userid.Val = Userinfo.Item("userid").ToString
+                    Userinf.Usergroup.Val = Userinfo.Item("group").ToString
+                    Userinf.TodayTraffic.Val = Userinfo.Item("todaytraffic").ToString
+                    Userinf.TotalTraffic.Val = Userinfo.Item("traffic").ToString
                     Me.Username = Me.tb_Username.Text
                     RaiseEvent LoginSucceed()
                     Me.Visibility = Visibility.Hidden
@@ -91,13 +114,20 @@ Public Class LoginBox
                     Me.tb_Username.IsEnabled = True
                     Me.tb_Password.IsEnabled = True
                     Me.bt_login.IsEnabled = True
-                    Dim WebException As System.Net.WebException = ex
-                    If WebException.Status = System.Net.WebExceptionStatus.ProtocolError Then
-                        Me.lb_info.Content += " “ + Assets.InvaildUorP
-                    Else
-                        'The following line is for debug only.
-                        MsgBox(ex.ToString())
-                    End If
+                    Try
+                        Dim WebException As System.Net.WebException = ex
+                        If WebException.Status = System.Net.WebExceptionStatus.ProtocolError Then
+                            Me.lb_info.Content += " " + Assets.InvaildUorP
+                        Else
+                            'The following line is for debug only.
+                            MsgBox(ex.ToString())
+                        End If
+                    Catch exx As Exception
+                        Select Case exx.HResult.ToString()
+                            Case "-2147467262"
+                            Case Else
+                        End Select
+                    End Try
                 End Sub)
         End Try
     End Sub

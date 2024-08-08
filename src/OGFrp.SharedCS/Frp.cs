@@ -13,6 +13,8 @@ namespace OGFrp.UI
     {
         Net Net = new Net();
         Config Config = new Config();
+        Userinf Userinfo = new Userinf();
+        Api Api = new Api();
 
         string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\OGFrp";
 
@@ -51,7 +53,7 @@ namespace OGFrp.UI
         public int serverToId(string server, string token)
         {
             FrpServer frpServer = new FrpServer();
-            FrpServerModel[] frpServers = frpServer.FrpsServerList(Net.Get("https://api.ogfrp.cn/?action=getnodesidip&token=" + token)).ToArray();
+            FrpServerModel[] frpServers = frpServer.FrpsServerList(Net.Get(Api.Server.Val + "/?action=getnodes&token=" + token)).ToArray();
             for (int i = 0; i < frpServers.Length; i++)
             {
                 if (frpServers[i].ID == server)
@@ -72,7 +74,8 @@ namespace OGFrp.UI
         {
             try
             {
-                File.WriteAllText(Config.FolderPath + "\\frpc.ini", Net.Get("https://api.ogfrp.cn/?action=getconf&token=" + token + "&node=" + server.ToString()));
+                UTF8Encoding utf8 = new UTF8Encoding(false);
+                File.WriteAllText(Config.FolderPath + "\\frpc.ini", Net.Get(Api.Server.Val + "/?action=getconfig&token=" + token + "&node=" + server.ToString()), utf8);
                 Interaction.Shell(Config.FolderPath + "\\frpc.exe -c \"" + Config.FolderPath + "\\frpc.ini\"", AppWinStyle.NormalFocus);
             }
             catch (Exception ex)
@@ -92,8 +95,9 @@ namespace OGFrp.UI
         {
             try
             {
-                string frpciniurl = "action=getconf&token=" + token + "&node=" + serverToId(server, token);
-                File.WriteAllText(Config.FolderPath + "\\frpc.ini", Net.Post("https://api.ogfrp.cn/", frpciniurl));
+                string frpciniurl = "token=" + token + "&node=" + serverToId(server, token);
+                UTF8Encoding utf8 = new UTF8Encoding(false);
+                File.WriteAllText(Config.FolderPath + "\\frpc.ini", Net.Post(Api.Server.Val + "/?action=getconfig", frpciniurl), utf8);
                 Interaction.Shell(Environment.CurrentDirectory + "\\frpc.exe -c \"" + Config.FolderPath + "\\frpc.ini\"", AppWinStyle.NormalFocus);
             }
             catch (Exception ex)

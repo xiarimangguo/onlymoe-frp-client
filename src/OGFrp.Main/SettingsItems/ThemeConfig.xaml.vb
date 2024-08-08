@@ -2,7 +2,9 @@
 
     Public Assets As UI.AssetModel
     Public Config As UI.Config
+    Public Userinf As UI.Userinf
     Public Theme As Theme
+    Public Api As UI.Api
 
     Public Sub _init_()
         Me.lb_Theme.Text = Assets.Theme

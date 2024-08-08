@@ -17,8 +17,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OGFrp.Linux.arm64", "src\OG
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OGFrp.Linux.amd64", "src\OGFrp.Linux\OGFrp.Linux.amd64\OGFrp.Linux.amd64.vcxproj", "{A4444A8B-ED62-49DC-88CB-7B21C08C2511}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "OGFrp.Panel", "src\OGFrp.Panel\OGFrp.Panel.njsproj", "{0D47E582-9A58-41C4-B08A-BF7112E980FA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OGFrp.Windows", "OGFrp.Windows", "{93B1954D-D037-4B62-8826-DDCA9B83EC53}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OGFrp.Linux.arm", "src\OGFrp.Linux\OGFrp.Linux.arm\OGFrp.Linux.arm.vcxproj", "{055B8FAA-71DC-45A2-95DA-8711E6A3554B}"
@@ -35,23 +33,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OGFrp.Linux.Common", "src\O
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OGFrp.Linux.386", "src\OGFrp.Linux\OGFrp.Linux.386\OGFrp.Linux.386.vcxproj", "{005F7A65-C4A4-4E7F-8A02-A1076B834745}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "OGFrp.Panel", "src\OGFrp.Panel\OGFrp.Panel.esproj", "{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{005f7a65-c4a4-4e7f-8a02-a1076b834745}*SharedItemsImports = 4
-		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{005f7a65-c4a4-4e7f-8a02-a1076b834745}*SharedItemsImports = 4
-		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{055b8faa-71dc-45a2-95da-8711e6a3554b}*SharedItemsImports = 4
-		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{055b8faa-71dc-45a2-95da-8711e6a3554b}*SharedItemsImports = 4
-		src\OGFrp.SharedCS\OGFrp.SharedCS.projitems*{5d663d05-bf63-44bb-bb0b-8b14c7e8810a}*SharedItemsImports = 4
-		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{86ff10a2-7406-4def-bde6-8d48d9db1eb6}*SharedItemsImports = 9
-		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{87d4e808-fbbf-40fc-b424-a75177945e42}*SharedItemsImports = 4
-		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{87d4e808-fbbf-40fc-b424-a75177945e42}*SharedItemsImports = 4
-		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{8b484454-c33b-4ba5-8f0b-e7bf6e68c4d7}*SharedItemsImports = 4
-		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{a4444a8b-ed62-49dc-88cb-7b21c08c2511}*SharedItemsImports = 4
-		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{a4444a8b-ed62-49dc-88cb-7b21c08c2511}*SharedItemsImports = 4
-		src\OGFrp.SharedCS\OGFrp.SharedCS.projitems*{be9916d1-32e4-4179-beaa-1eafbe01c819}*SharedItemsImports = 4
-		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{bfe27f74-9a69-4508-90d1-2311386513a0}*SharedItemsImports = 9
-		src\OGFrp.SharedCS\OGFrp.SharedCS.projitems*{e7dbe375-cf34-445f-bb78-9e988ee3a6cc}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -308,40 +292,6 @@ Global
 		{A4444A8B-ED62-49DC-88CB-7B21C08C2511}.Window|x86.ActiveCfg = Window|x86
 		{A4444A8B-ED62-49DC-88CB-7B21C08C2511}.Window|x86.Build.0 = Window|x86
 		{A4444A8B-ED62-49DC-88CB-7B21C08C2511}.Window|x86.Deploy.0 = Window|x86
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|ARM.Build.0 = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|x64.Build.0 = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Debug|x86.Build.0 = Debug|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|Any CPU.ActiveCfg = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|ARM.ActiveCfg = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|ARM.Build.0 = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|ARM64.ActiveCfg = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|ARM64.Build.0 = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|x64.ActiveCfg = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|x64.Build.0 = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|x86.ActiveCfg = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Linux|x86.Build.0 = Linux|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|ARM.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|ARM.Build.0 = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|ARM64.Build.0 = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|x64.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|x64.Build.0 = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|x86.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Release|x86.Build.0 = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Window|Any CPU.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Window|ARM.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Window|ARM64.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Window|x64.ActiveCfg = Release|Any CPU
-		{0D47E582-9A58-41C4-B08A-BF7112E980FA}.Window|x86.ActiveCfg = Release|Any CPU
 		{055B8FAA-71DC-45A2-95DA-8711E6A3554B}.Debug|Any CPU.ActiveCfg = Debug|ARM
 		{055B8FAA-71DC-45A2-95DA-8711E6A3554B}.Debug|Any CPU.Build.0 = Debug|ARM
 		{055B8FAA-71DC-45A2-95DA-8711E6A3554B}.Debug|Any CPU.Deploy.0 = Debug|ARM
@@ -560,6 +510,66 @@ Global
 		{005F7A65-C4A4-4E7F-8A02-A1076B834745}.Window|x86.ActiveCfg = Window|x86
 		{005F7A65-C4A4-4E7F-8A02-A1076B834745}.Window|x86.Build.0 = Window|x86
 		{005F7A65-C4A4-4E7F-8A02-A1076B834745}.Window|x86.Deploy.0 = Window|x86
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|ARM.Build.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|ARM.Deploy.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|ARM64.Deploy.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|x64.Build.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|x86.Build.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|Any CPU.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|Any CPU.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|Any CPU.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|ARM.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|ARM.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|ARM.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|ARM64.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|ARM64.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|ARM64.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|x64.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|x64.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|x64.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|x86.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|x86.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Linux|x86.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|ARM.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|ARM.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|ARM64.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|ARM64.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|x64.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|x64.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|x64.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|x86.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|x86.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Release|x86.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|Any CPU.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|Any CPU.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|Any CPU.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|ARM.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|ARM.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|ARM.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|ARM64.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|ARM64.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|ARM64.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|x64.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|x64.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|x64.Deploy.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|x86.ActiveCfg = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|x86.Build.0 = Release|Any CPU
+		{3D0CB27F-50A7-4FE1-80FA-0FBEA84D48D7}.Window|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -580,5 +590,21 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CEF304D8-4E56-4599-9E6A-F89EB97D8525}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{005f7a65-c4a4-4e7f-8a02-a1076b834745}*SharedItemsImports = 4
+		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{005f7a65-c4a4-4e7f-8a02-a1076b834745}*SharedItemsImports = 4
+		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{055b8faa-71dc-45a2-95da-8711e6a3554b}*SharedItemsImports = 4
+		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{055b8faa-71dc-45a2-95da-8711e6a3554b}*SharedItemsImports = 4
+		src\OGFrp.SharedCS\OGFrp.SharedCS.projitems*{5d663d05-bf63-44bb-bb0b-8b14c7e8810a}*SharedItemsImports = 4
+		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{86ff10a2-7406-4def-bde6-8d48d9db1eb6}*SharedItemsImports = 9
+		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{87d4e808-fbbf-40fc-b424-a75177945e42}*SharedItemsImports = 4
+		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{87d4e808-fbbf-40fc-b424-a75177945e42}*SharedItemsImports = 4
+		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{8b484454-c33b-4ba5-8f0b-e7bf6e68c4d7}*SharedItemsImports = 4
+		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{a4444a8b-ed62-49dc-88cb-7b21c08c2511}*SharedItemsImports = 4
+		src\OGFrp.Unix.Common\OGFrp.Unix.Common.vcxitems*{a4444a8b-ed62-49dc-88cb-7b21c08c2511}*SharedItemsImports = 4
+		src\OGFrp.SharedCS\OGFrp.SharedCS.projitems*{be9916d1-32e4-4179-beaa-1eafbe01c819}*SharedItemsImports = 4
+		src\OGFrp.Linux\OGFrp.Linux.Common\OGFrp.Linux.Common.vcxitems*{bfe27f74-9a69-4508-90d1-2311386513a0}*SharedItemsImports = 9
+		src\OGFrp.SharedCS\OGFrp.SharedCS.projitems*{e7dbe375-cf34-445f-bb78-9e988ee3a6cc}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

@@ -13,7 +13,7 @@ Public Class ServerSelectionWindow
         Me.AccessToken = AccessToken
         Me.lb_Server.Text = Assets.PlzSelectServer
         Me.bt_launch.Text = Assets.LaunchFrpc
-        Dim Content = Net.Get("https://api.ogfrp.cn/?action=getnodesidip&token=" + AccessToken)
+        Dim Content = Net.Get(Api.Server.Val + "/?action=getnodes&token=" + AccessToken)
         Dim frpservers = FrpServer.FrpsServerList(Content)
         Me.cb_Server.DataSource = frpservers
         Me.cb_Server.DisplayMember = "Address"

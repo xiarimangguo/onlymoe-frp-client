@@ -151,6 +151,5 @@ namespace OGFrp.UI
             writer.Write(content);
             writer.Close();
         }
-
     }
 }
